@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinacion de Moda y Tenis</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+               <nav class="navegacion">
+                    <a href="index.html" class="navegacion__link">inicio</a>
+                    <a href="sobrenosotros.html" class="navegacion__link">sobre nosotros</a>
+                    <a href="diseños.html" class="navegacion__link">diseños</a>
+                    <a href="contacto.html" class="navegacion__link">contacto</a>
+<div class="galeria">
+    <h1>diseños</h1>
+    <div class="linea"></div>
+    <div class="contenedor-imagenes">
+        <div class="imagen">
+            <img src="img/camisetas-estampadas-1680179n0-00000046.jpg" alt="fly like a butterfly">
+            <div class="overlife"></div>
+            <h2>camiseta urbana hombre</h2>
+            <a href="">comprar</a>
+
+            <div class="article-holder">
+                <div class="row">
+                    <div class="column">
+                        <div class="article-box">
+                            <img src="https://www.philips.rs/c-dam/b2c/category-pages/sound-and-vision/monitors/redesign/landing/find-your-monitor-272S1AE.png" class="article-img">
+                            <button class="add-article">Add Cart</button>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="article-box">
+                            <img src="https://www.philips.rs/c-dam/b2c/category-pages/sound-and-vision/monitors/redesign/landing/find-your-monitor-272S1AE.png" class="article-img">
+                            <button class="add-article">Add Cart</button>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="article-box">
+                            <img src="https://www.philips.rs/c-dam/b2c/category-pages/sound-and-vision/monitors/redesign/landing/find-your-monitor-272S1AE.png" class="article-img">
+                            <button class="add-article">Add Cart</button>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="article-box">
+                            <img src="https://www.philips.rs/c-dam/b2c/category-pages/sound-and-vision/monitors/redesign/landing/find-your-monitor-272S1AE.png" class="article-img">
+                            <button class="add-article">Add Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+
+              
+                       
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script>
+
+var numArticle= 0;
+$('.add-article').click(function () {
+        var current = $(this);
+        var currentParent = current.parents('.article-box');
+        var currentImage = currentParent.find('.article-img');
+
+        var currentClone = currentImage.clone();
+
+        var topImage = currentImage.offset().top;
+        var LeftImage = currentImage.offset().left;
+
+        currentClone.removeClass('article-img');
+        currentClone.css({top: topImage, left: LeftImage});
+
+
+        currentClone.addClass('animation-cart');
+        currentClone.appendTo('body');
+
+        var topCart = $('.header-cart').offset().top;
+        var LeftCart = $('.header-cart').offset().left;
+        numArticle++;
+         
+
+        setTimeout(function(){
+            $('.header-cart').addClass('shake');
+            currentClone.animate({
+                top: topCart - 130,
+                left: LeftCart - 140
+            }, 1200 );
+        }, 600);
+  
+        setTimeout(function(){
+           $('.header-cart span').html(numArticle);
+         }, 1800);
+
+        setTimeout(function(){
+            $('.header-cart').removeClass('shake');
+             currentClone.remove();
+        }, 2200);
+
+    });
+    
+</script>
+
+
+</html>
+
